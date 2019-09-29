@@ -42,5 +42,16 @@ int main(int argc, char **argv)
     std::cout << CppRot::QuatMult_S(quat2, quat1).w() << "\t" << CppRot::QuatMult_S(quat2, quat1).vec().transpose() << std::endl;
     std::cout << CppRot::QuatMult_H(quat1, quat2).w() << "\t" << CppRot::QuatMult_H(quat1, quat2).vec().transpose() << std::endl;
 
+    std::cout << std::endl;
+
+    Matrix3d Tmat = CppRot::Quat2Tmat(quat1.normalized());
+    Matrix3d Rmat = CppRot::Quat2Rmat(quat1.normalized());
+
+    std::cout << quat1.w() << " " << quat1.vec().transpose() << std::endl;
+    std::cout << std::endl;
+    std::cout << Tmat << std::endl;
+    std::cout << std::endl;
+    std::cout << Rmat << std::endl;
+
     return 0;
 };
